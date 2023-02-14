@@ -1,0 +1,17 @@
+name: mayBeFinal
+on: workflow_dispatch
+    #schedule:
+    #- cron: '* * * * *'
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - name: checkout repo content
+        uses: actions/checkout@v2 # checkout the repository content to github runner.
+      - name: setup python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8 #install the python neede 
+      - name: execute py script # run the run.py to get the latest data
+        run: |
+          python baseFinal.py
